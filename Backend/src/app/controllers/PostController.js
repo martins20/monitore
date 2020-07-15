@@ -19,7 +19,7 @@ class PostController {
                 });
                 return {
                     id: post.id,
-                    teste: userID,
+                    user: userID,
                     title: post.title,
                     body: post.body,
                 };

@@ -1,10 +1,14 @@
 import React from "react";
 
+import GlobalStyle from "./Style/GlobalStyle";
+import Routes from "./Routes";
+
 function App() {
   return (
-    <div>
-      <h1>Monitore</h1>
-    </div>
+    <>
+      <Routes />
+      <GlobalStyle />
+    </>
   );
 }
 
