@@ -38,10 +38,6 @@ export const UserCard = styled.div`
     small {
       color: #313131;
     }
-
-    Link {
-      display: flex;
-    }
   }
 `;
 

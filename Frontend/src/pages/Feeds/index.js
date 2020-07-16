@@ -4,16 +4,19 @@ import { Container, Content } from "./styles";
 
 import Drawer from "../../components/Drawer";
 import Spinner from "../../components/Spinner";
+import Posts from "../../components/Posts";
+import Modal from "../../components/Modal";
+import Pagination from "../../components/Pagination";
 
 import api from "../../services/api";
-import Posts from "../../components/Posts";
-import Pagination from "../../components/Pagination";
 
 export default function Feed() {
   const [feeds, setFeeds] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(7);
+  const [postId, setPostId] = useState("");
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     setLoading(true);
@@ -33,13 +36,17 @@ export default function Feed() {
   return (
     <Container>
       <Drawer Feeds />
-      <Content loading={loading}>
+      <Content loading={loading ? 1 : 0}>
         {loading ? (
           <Spinner />
         ) : (
           <>
             <h1>Feeds</h1>
-            <Posts posts={currentPost} />
+            <Posts
+              posts={currentPost}
+              setPostId={setPostId}
+              setVisible={setVisible}
+            />
             <Pagination
               postsPerPage={postsPerPage}
               setCurrentPage={setCurrentPage}
@@ -49,6 +56,7 @@ export default function Feed() {
           </>
         )}
       </Content>
+      <Modal visible={visible} postId={postId} setVisible={setVisible}></Modal>
     </Container>
   );
 }
