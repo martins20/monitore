@@ -2,22 +2,19 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
-  flex: 1;
+  width: 100%;
   height: 100%;
-  padding: 20px;
-  flex-direction: row;
-  justify-content: space-between;
-  position: relative;
+  flex-direction: column;
 `;
 
 export const Content = styled.div`
+  width: 100%;
   display: flex;
+  height: 100%;
+  padding: 20px;
   flex-direction: column;
   justify-content: ${(props) => (props.loading ? "center" : "")};
   align-items: ${(props) => (props.loading ? "center" : "")};
-  width: 83%;
-
-  margin-left: 350px;
 
   h1 {
     color: #000;
@@ -90,17 +87,23 @@ export const FeedContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
   width: 100%;
+  flex-wrap: wrap;
+
+  border: 1px solid red;
+
   margin-top: 5px;
 `;
 
 export const PostContainer = styled.div`
   padding: 0 30px;
-  width: 31%;
+  width: 500px;
   height: 250px;
   display: flex;
+  margin: 20px 20px 0 0;
+
   flex-direction: column;
+
   background: #fff;
   border-radius: 10px;
 
@@ -144,17 +147,80 @@ export const UserContainer = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
-  /* background: #fff; */
+  flex-wrap: wrap;
   border-radius: 10px;
-  justify-content: space-between;
 `;
 
 export const UserCard = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   background: #fff;
   padding: 20px;
   width: 290px;
   height: 250px;
+  margin: 20px 20px 0 0;
   border-radius: 10px;
+
+  header {
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+    h1 {
+      color: #6cdb2d;
+      font-size: 20px;
+      margin-bottom: 0;
+    }
+
+    small {
+      color: #313131;
+    }
+
+    Link {
+      display: flex;
+    }
+  }
+`;
+
+export const Body = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 10px;
+
+  align-items: center;
+
+  small {
+    margin-top: 5px;
+    color: #979aa6;
+  }
+`;
+
+export const Company = styled.div`
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-evenly;
+  color: #313131;
+  margin-top: 20px;
+
+  svg {
+    color: #313131;
+  }
+`;
+
+export const Phone = styled.div`
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-evenly;
+  color: #313131;
+  margin-top: 20px;
+
+  svg {
+    color: #313131;
+  }
 `;

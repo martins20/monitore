@@ -1,23 +1,19 @@
 import React, { useState, useEffect } from "react";
-import { FaRegCommentDots } from "react-icons/fa";
 
-import {
-  Container,
-  Content,
-  Feeds,
-  PostContainer,
-  PostContent,
-  Comments,
-} from "./styles";
+import { Container, Content } from "./styles";
 
 import Drawer from "../../components/Drawer";
 import Spinner from "../../components/Spinner";
 
 import api from "../../services/api";
+import Posts from "../../components/Posts";
+import Pagination from "../../components/Pagination";
 
 export default function Feed() {
   const [feeds, setFeeds] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage] = useState(7);
 
   useEffect(() => {
     setLoading(true);
@@ -30,6 +26,10 @@ export default function Feed() {
     handleGetData();
   }, []);
 
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPost = feeds.slice(indexOfFirstPost, indexOfLastPost);
+
   return (
     <Container>
       <Drawer Feeds />
@@ -39,21 +39,13 @@ export default function Feed() {
         ) : (
           <>
             <h1>Feeds</h1>
-            <Feeds>
-              {feeds.map((post) => (
-                <PostContainer key={post.id}>
-                  <PostContent>
-                    <header>
-                      <h2>{post.user.name}</h2>
-                      <h3>{post.user.company}</h3>
-                    </header>
-
-                    <h4>{post.title}</h4>
-                    <p>{post.body}</p>
-                  </PostContent>
-                </PostContainer>
-              ))}
-            </Feeds>
+            <Posts posts={currentPost} />
+            <Pagination
+              postsPerPage={postsPerPage}
+              setCurrentPage={setCurrentPage}
+              totalPosts={feeds.length}
+              currentPage={currentPage}
+            />
           </>
         )}
       </Content>

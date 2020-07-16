@@ -1,24 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { FaRegCommentDots } from "react-icons/fa";
 import { useHistory } from "react-router-dom";
 
-import {
-  Container,
-  Content,
-  Banner,
-  FeedContainer,
-  HeaderContainer,
-  PostContainer,
-  PostContent,
-  Comments,
-  UserContainer,
-  UserCard,
-} from "./styles";
+import { Container, Content, Banner, HeaderContainer } from "./styles";
 
 import Drawer from "../../components/Drawer";
 import Spinner from "../../components/Spinner";
 
 import api from "../../services/api";
+import Posts from "../../components/Posts";
+import Users from "../../components/Users";
 
 export default function Dashboard() {
   const [feeds, setFeeds] = useState([]);
@@ -62,7 +52,7 @@ export default function Dashboard() {
   return (
     <Container>
       <Drawer Dashboard={true} />
-      <Content loading={loading}>
+      <Content loading={loading ? 1 : 0}>
         {loading ? (
           <Spinner />
         ) : (
@@ -84,44 +74,13 @@ export default function Dashboard() {
               <h3>Last Feeds</h3>
               <button onClick={() => handleNavigate("/feeds")}>View All</button>
             </HeaderContainer>
-            <FeedContainer>
-              {feeds.map((post) => (
-                <PostContainer key={post.id}>
-                  <PostContent>
-                    <header>
-                      <h2>{post.user.name}</h2>
-                      <h3>{post.user.company}</h3>
-                    </header>
-
-                    <h4>{post.title}</h4>
-                    <p>{post.body}</p>
-                  </PostContent>
-                </PostContainer>
-              ))}
-            </FeedContainer>
+            <Posts posts={feeds} />
 
             <HeaderContainer>
               <h3>Last users</h3>
               <button onClick={() => handleNavigate("/users")}>View All</button>
             </HeaderContainer>
-            <UserContainer>
-              {users.map((user) => (
-                <UserCard>
-                  <p>
-                    Username:
-                    <b> {user.username} </b>
-                  </p>
-                  <p>
-                    E-mail: <b> {user.email}</b>
-                  </p>
-
-                  <p>
-                    company:
-                    <b> {user.company.name} </b>
-                  </p>
-                </UserCard>
-              ))}
-            </UserContainer>
+            <Users users={users} />
           </>
         )}
       </Content>

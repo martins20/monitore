@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 
-import { Container, Content, Users, UserCard, CardContent } from "./styles";
+import { Container, Content } from "./styles";
 
 import Drawer from "../../components/Drawer";
 import Spinner from "../../components/Spinner";
 
 import api from "../../services/api";
+import Users from "../../components/Users";
 
 export default function User() {
   const [users, setUsers] = useState([]);
@@ -31,22 +32,7 @@ export default function User() {
         ) : (
           <>
             <h1>Users</h1>
-            <Users>
-              {users.map((user) => (
-                <UserCard key={user.id}>
-                  <CardContent>
-                    <header>
-                      <h2>{user.name}</h2>
-                      <h3>{user.email}</h3>
-                      <h3>{user.phone}</h3>
-                    </header>
-
-                    <h4>{user.company.name}</h4>
-                    <p>{user.company.bs}</p>
-                  </CardContent>
-                </UserCard>
-              ))}
-            </Users>
+            <Users users={users} />
           </>
         )}
       </Content>

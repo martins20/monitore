@@ -29,7 +29,8 @@ const GlobalStyle = createGlobalStyle`
   }
 
   #root {
-    display: flex;    
+    display: flex;  
+
   }
   
   button {
