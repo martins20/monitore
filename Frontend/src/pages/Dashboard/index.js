@@ -9,12 +9,15 @@ import Spinner from "../../components/Spinner";
 import api from "../../services/api";
 import Posts from "../../components/Posts";
 import Users from "../../components/Users";
+import Modal from "../../components/Modal";
 
 export default function Dashboard() {
   const [feeds, setFeeds] = useState([]);
   const [users, setUsers] = useState([]);
-  const [count, setCount] = useState([]);
+  const [count, setCount] = useState(0);
   const [loading, setLoading] = useState(false);
+  const [postId, setPostId] = useState("");
+  const [visible, setVisible] = useState(false);
 
   const history = useHistory();
 
@@ -74,7 +77,11 @@ export default function Dashboard() {
               <h3>Last Feeds</h3>
               <button onClick={() => handleNavigate("/feeds")}>View All</button>
             </HeaderContainer>
-            <Posts posts={feeds} />
+            <Posts
+              posts={feeds}
+              setPostId={setPostId}
+              setVisible={setVisible}
+            />
 
             <HeaderContainer>
               <h3>Last users</h3>
@@ -84,6 +91,7 @@ export default function Dashboard() {
           </>
         )}
       </Content>
+      <Modal visible={visible} postId={postId} setVisible={setVisible}></Modal>
     </Container>
   );
 }
