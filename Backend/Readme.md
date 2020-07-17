@@ -12,8 +12,6 @@
 
 The idea is basicly consume an api making you own backend and frontend with the simple task <b>show the list of all companies and all post of then</b>
 
-## Backend :floppy_disk:
-
 ## How to run
 
 ### Steps:
@@ -22,6 +20,8 @@ The idea is basicly consume an api making you own backend and frontend with the 
 -   Start server on backend using <code>yarn start</code> or <code>npm run start</code>
 -   Start server on frontend using <code>yarn start</code> or <code>npm run start</code>
 -   Finish !! you may consume the frontend in localhost:3000 :blush:
+
+## Backend :floppy_disk:
 
 ### Techs :factory:
 
