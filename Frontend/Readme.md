@@ -4,7 +4,7 @@
 
 :sunglasses: A Chalange of Growth tech company :sunglasses:
 
-<img src='./assets/Challenge.gif' />
+<img src='../assets/Challenge.gif' />
 
 </div>
 
@@ -13,6 +13,15 @@
 The idea is basicly consume an api making you own backend and frontend with the simple task <b>show the list of all companies and all post of then</b>
 
 ## Backend :floppy_disk:
+
+## How to run
+
+### Steps:
+
+- Install all packages using `NPM` or `Yarn` in both repository.
+- Start server on backend using <code>yarn start</code> or <code>npm run start</code>
+- Start server on frontend using <code>yarn start</code> or <code>npm run start</code>
+- Finish !! you may consume the frontend in localhost:3000 :blush:
 
 ### Techs :factory:
 

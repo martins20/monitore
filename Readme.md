@@ -14,6 +14,15 @@ The idea is basicly consume an api making you own backend and frontend with the 
 
 ## Backend :floppy_disk:
 
+## How to run
+
+### Steps:
+
+- Install all packages using `NPM` or `Yarn` in both repository.
+- Start server on backend using <code>yarn start</code> or <code>npm run start</code>
+- Start server on frontend using <code>yarn start</code> or <code>npm run start</code>
+- Finish !! you may consume the frontend in localhost:3000 :blush:
+
 ### Techs :factory:
 
 - Axios
