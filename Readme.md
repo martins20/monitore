@@ -31,7 +31,7 @@ The idea is basicly consume an api making you own backend and frontend with the 
 
 ## Frontend :computer:
 
-### Techs :factory:
+### Techs :factory: 
 
 - React ( Required )
 - React-activity
